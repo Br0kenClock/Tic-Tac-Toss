@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="description" content="Play Tic-Tac-Toss — a fun interactive game built with HTML, CSS, and JavaScript!">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Tic-Tac-Toss</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="gameStyling.css">
 </head>
 <body>
   <div class="totalContainer">
     <div class="titleContainer">
-    <p id="title">Tic-Tac-Toss</p>
+      <div class="textContainer">
+        <p id="title">Tic-Tac-Toss</p>
+      </div>
     </div>
-  
+
     <div class="gameBox">
       <main>
         <div class="gameContainer">
@@ -27,20 +30,45 @@
           <button class="box"></button>
         </div>
       </main>
-
-      <div class="buttonsContainer">
-        <button class="btn">Rest</button>
-        <button class="noToss">
-          <span class="btn-text-one">Toss</span>
-          <span class="btn-text-two">No Toss</span>
-        </button>
+    </div>
+    
+    <div class="buttonsContainer">
+      <button class="resetBtn" aria-label="Reset Game">
+        <span class="reset-text">Reset</span>
+        <img src="images/reset-svgrepo-com.svg" class="reset-icon" alt="reset icon"/>
+      </button>
+      <div class="wrapper" role="radiogroup" aria-label="Choose turn order">
+        <div class="option">
+          <input checked value="option1" name="btn" type="radio" class="input" id="goFirst" />
+          <div class="btn">
+            <span class="span">GO 1st</span>
+          </div>
+        </div>
+        <div class="option">
+          <input value="option2" name="btn" type="radio" class="input" id="goSecond" />
+          <div class="btn">
+            <span class="span">GO 2nd</span>
+          </div>
+        </div>
       </div>
+      <button class="combo-btn" id="toggleButton" aria-pressed="false">
+        <span class="btn-text-one">TOSS</span>
+        <span class="btn-text-two"><s>TOSS</s></span>
+      </button>
     </div>
   </div>
 
   <script>
-    const box = document.querySelector(".box");
+    // Toggle button accessibility
+    document.addEventListener('DOMContentLoaded', function() {
+      const comboBtn = document.getElementById('toggleButton');
+      if (comboBtn) {
+        comboBtn.addEventListener('click', () => {
+          comboBtn.classList.toggle('toggled');
+          comboBtn.setAttribute('aria-pressed', comboBtn.classList.contains('toggled'));
+        });
+      }
+    });
   </script>
-
 </body>
 </html>

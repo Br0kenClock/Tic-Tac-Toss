@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toggle Button</title>
+  <link rel="stylesheet" href="trial.css" />
+</head>
+<body>
+  <button class="combo-btn" id="toggleButton">
+    <span class="btn-text-one">TOSS</span>
+    <span class="btn-text-two"><s>TOSS</s></span>
+  </button>
+
+  <button class="resetBtn">
+    <span class="reset-text">RST</span>
+    <img src="images/reset-svgrepo-com.svg" alt="reset icon" class="reset-icon hideBtn">
+  </button>
+
+  <script>
+    const comboBtn = document.getElementById('toggleButton');
+    comboBtn.addEventListener('click', () => {
+      comboBtn.classList.toggle('toggled');
+    });
+  </script>
+</body>
+</html>

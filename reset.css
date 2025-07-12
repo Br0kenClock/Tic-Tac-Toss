@@ -36,7 +36,9 @@ input, button, textarea, select {
   font: inherit;
 }
 
-/* 7. Remove animations and transitions for users who prefer reduced motion */
+/* 7. Remove animations and transitions for users who prefer reduced motion
+[Note: Hate that this piece of menace that made me scratch my head for an hour while trying to figure out why my animations were not working. SO i turned it off for now, but will keep it in mind for future use.]
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -44,7 +46,7 @@ input, button, textarea, select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
+} */
 
 /* 8. Reset anchor defaults */
 a {
@@ -70,4 +72,22 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+body {
+  overflow-wrap: anywhere;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+}
+
+html {
+  touch-action: manipulation;
 }
